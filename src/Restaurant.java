@@ -252,5 +252,7 @@ public class Restaurant {
         if (wait_queue.size() > 0 || wait_times.size() > 0) {
             avg = sum / (float)(wait_queue.size() + wait_times.size());
         }
+
+        return avg;
     }
 }
