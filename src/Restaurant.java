@@ -12,6 +12,7 @@ class Customer {
     private int wait_time;
     private int service_time;
 
+    // Just initialize the customer with it's wait time. Decided by the prng in the owner class
     public Customer(int service_time) {
         this.service_time = service_time;
     }
@@ -125,6 +126,7 @@ public class Restaurant {
     public String toString() {
         int in_service = getCustomersInService();
 
+        // Get our wait stats
         int min = getMinWait();
         int max = getMaxWait();
         int sum = getWaitTotal();
@@ -200,9 +202,11 @@ public class Restaurant {
         return in_service;
     }
 
+    // Get the minimum wait time out of all of our wait times
     private int getMinWait() {
         int min = 0;
 
+        // Make sure that our queue is not empty so that we dont get an exception
         if (!wait_queue.isEmpty()) {
             min = Collections.min(wait_queue, Comparator.comparing(Customer::getWaitTime)).getWaitTime();
         }
@@ -215,9 +219,11 @@ public class Restaurant {
         return min;
     }
 
+    // Get the maximum wait time out of all of our wait times
     private int getMaxWait() {
         int max = 0;
 
+        // Make sure that our queue is not empty so that we don't get an exception
         if (!wait_queue.isEmpty()) {
             max = Collections.max(wait_queue, Comparator.comparing(Customer::getWaitTime)).getWaitTime();
         }
@@ -230,10 +236,10 @@ public class Restaurant {
         return max;
     }
 
+    // Returns the total wait time of all of the customers that have been serviced / in queue
     private int getWaitTotal() {
         int sum = 0;
 
-        // Now get the sum of the wait time
         for (Customer cust : wait_queue) {
             sum += cust.getWaitTime();
         }
@@ -245,10 +251,12 @@ public class Restaurant {
         return sum;
     }
 
+    // Just get the average wait time of all of the times that we have.
     private float getAvgWait() {
         float avg = 0;
         int sum = getWaitTotal();
 
+        // Make sure that we aren't dividing by 0
         if (wait_queue.size() > 0 || wait_times.size() > 0) {
             avg = sum / (float)(wait_queue.size() + wait_times.size());
         }
