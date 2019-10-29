@@ -1,0 +1,23 @@
+8 servers, 2.00 demand
+Tick #: 1
+   4 Customers in service
+   0 Customers completed service
+   0 Customers in queue
+   Total wait time: 0
+   Wait time: min: 0, max: 0, avg: 0.00
+
+Tick #: 2
+   7 Customers in service
+   0 Customers completed service
+   0 Customers in queue
+   Total wait time: 0
+   Wait time: min: 0, max: 0, avg: 0.00
+
+...
+
+Tick #: 20
+   8 Customers in service
+   17 Customers completed service
+   12 Customers in queue
+   Total wait time: 161
+   Wait time: min: 0, max: 16, avg: 4.35
